@@ -15,3 +15,4 @@ To run the game type:
 - Allow pairs to be split
 - Add more than one player
 - Add 5 card trick
+- Allow user to play more than one hand
