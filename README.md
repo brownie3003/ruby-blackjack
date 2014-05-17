@@ -14,3 +14,4 @@ To run the game type:
 - Add chips/betting to game
 - Allow pairs to be split
 - Add more than one player
+- Add 5 card trick
