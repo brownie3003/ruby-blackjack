@@ -39,7 +39,7 @@ class Dealer
             @players.each do |player|
                 puts "Dealer: #{player.name}'s turn."
                 until @rules.endTurn? player
-                    unless player == @dealer
+                    if player != @dealer
                         giveOptions player
                         playerChoice player
                     else
