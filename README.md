@@ -10,7 +10,6 @@ To run the game type:
 ### Still to do
 
 - Set Ace to be worth 1 or 11
-- Make player lose if they go bust and house goes bust
 - Add chips/betting to game
 - Allow pairs to be split
 - Add more than one player

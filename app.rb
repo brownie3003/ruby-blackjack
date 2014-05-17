@@ -14,4 +14,4 @@ puts "Dealer: Hi #{player.name}, let's play"
 
 dealer = Dealer.new player
 
-dealer.play
+dealer.deal
