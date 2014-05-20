@@ -6,6 +6,7 @@ class Rules
             setCardValue card
             score += card.value
         end
+
         return score
     end
     
