@@ -3,7 +3,7 @@ class Dealer
     require './lib/deck.rb'
     require './lib/rules.rb'
     
-    def initialize player
+    def initialize(player)
         @deck = Deck.new
         @rules = Rules.new
         @dealer = Player.new "House"
@@ -40,7 +40,7 @@ class Dealer
             @players.each do |player|
                 puts "Dealer: #{player.name}'s turn."
                 dealersHand
-                until @rules.endTurn? player
+                until @rules.endTurn?(player)
                     if player != @dealer
                         explainHand player
                         giveOptions player
@@ -64,15 +64,15 @@ class Dealer
             puts "Dealer: House shows #{@dealer.hand[1].to_s}."
         end
         
-        def giveOptions player
+        def giveOptions(player)
             puts "Dealer: Your hand is worth #{@rules.score(player.hand)} points. Hit or stick?"
         end
         
-        def playerChoice player
+        def playerChoice(player)
             response = gets.chomp
             case response
             when "Hit" 
-                puts "#{player.name}: Hit me baby."
+                puts "#{player.name}: Hit me."
                 card = @deck.draw
                 player.hand << card
                 puts "Dealer: Card is #{card.to_s}"
@@ -83,14 +83,14 @@ class Dealer
             end
         end
         
-        def dealerPlay dealer
-            explainHand dealer
+        def dealerPlay(dealer)
+            explainHand(dealer)
             puts "Dealer: #{dealer.name} has #{@rules.score(dealer.hand)}"
             if @rules.score(dealer.hand) < 17
                 puts "Dealer: House chooses to hit"
                 card = @deck.draw
                 dealer.hand << card
-                explainHand dealer
+                explainHand(dealer)
             else
                 puts "Dealer: House chooses to stick"
                 dealer.stick = true
@@ -98,7 +98,7 @@ class Dealer
             sleep(5)
         end
         
-        def explainHand player
+        def explainHand(player)
             if player.hand.empty?
                 puts "Dealer: #{player.name}'s hand is empty"
             else
@@ -106,7 +106,7 @@ class Dealer
             end
         end
 
-        def formatHand hand
+        def formatHand(hand)
             formattedHand = Array.new
             hand.each do |card|
                 formattedHand << "#{card.rank} of #{card.suit}"

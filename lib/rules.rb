@@ -1,16 +1,16 @@
 class Rules
 
-    def score hand
+    def score(hand)
         score = 0
         hand.each do |card|
-            setCardValue card
+            setCardValue(card)
             score += card.value
         end
 
         return score
     end
     
-    def endTurn? player
+    def endTurn?(player)
         if score(player.hand) > 21
             player.bust = true
             return true  
@@ -19,7 +19,7 @@ class Rules
         end
     end
 
-    def calculateWinners players, dealer
+    def calculateWinners(players, dealer)
         if dealer.bust
             puts "Random Drunk in the Corner: Dealers Bust, everyone's a winner baby"
             for player in players do
@@ -44,7 +44,7 @@ class Rules
     private
 
         # Set BlackJack specific values for cards
-        def setCardValue card
+        def setCardValue(card)
             case card.rank
             when 'Ace'
                 card.value = 11
